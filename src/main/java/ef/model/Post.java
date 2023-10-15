@@ -1,5 +1,7 @@
 package ef.model;
 
+import java.sql.Timestamp;
+
 public class Post {
     private Long id;
     private String content;
@@ -38,9 +40,34 @@ public class Post {
         this.updated = updated;
     }
 
-    public Post(String content, Long created, Long updated) {
+    public Post() {
+    }
+
+    public Post(Long id, String content) {
+        this.id = id;
+        this.content = content;
+    }
+
+    public Post(String content) {
+        this.content = content;
+    }
+
+    public Post(Long id, String content, Long created, Long updated) {
+        this.id = id;
         this.content = content;
         this.created = created;
         this.updated = updated;
+    }
+
+
+    @Override
+    public String toString() {
+        return "\n* ********************************************************" +
+                "\n*  Post id: " + id +
+                "\n* ********************************************************" +
+                "\n*   content: " + content +
+                "\n*   created: " + new Timestamp(created) +
+                "\n*   updated: " + new Timestamp(updated) +
+                "\n* ********************************************************";
     }
 }

@@ -1,5 +1,4 @@
 package ef.model;
-
 public class Region {
     private Long id;
     private String name;
@@ -34,9 +33,6 @@ public class Region {
 
     @Override
     public String toString() {
-        return "Region{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "id: " + id + ", name: " + name + "\n";
     }
 }
