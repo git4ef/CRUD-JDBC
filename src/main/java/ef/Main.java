@@ -1,18 +1,12 @@
 package ef;
 
 
-import ef.controller.RegionController;
-import ef.model.Region;
-import ef.repository.DatabaseRepoImpl.RegionRepoImpl;
-import ef.repository.RegionRepository;
+import ef.util.LiquibaseUtil;
 import ef.view.MenuView;
 
-import java.io.IOException;
-
-
 public class Main {
-    public static void main(String[] args)  {
-
+    public static void main(String[] args) {
+        LiquibaseUtil.initDB();
         MenuView menuView = new MenuView();
         menuView.runMenuView();
     }

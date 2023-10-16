@@ -1,0 +1,46 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="EF (generated)" id="1697465574864-1">
+        <createTable tableName="region">
+            <column autoIncrement="true" name="id_region" startWith="1" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="region_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-2">
+        <createTable tableName="writer">
+            <column autoIncrement="true" name="id_writer" startWith="1" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="writer_pkey"/>
+            </column>
+            <column name="first_name" type="VARCHAR"/>
+            <column name="last_name" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-3">
+        <createTable tableName="post">
+            <column autoIncrement="true" name="id_post" startWith="1" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="post_pkey"/>
+            </column>
+            <column name="content" type="VARCHAR"/>
+            <column name="created" type="BIGINT"/>
+            <column name="updated" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-4">
+        <createTable tableName="writer_region_post">
+            <column name="writer_id" type="BIGINT"/>
+            <column name="region_id" type="BIGINT"/>
+            <column name="post_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-5">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="writer_region_post" constraintName="writer_region_post_post_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id_post" referencedTableName="post" validate="true"/>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-6">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="writer_region_post" constraintName="writer_region_post_region_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id_region" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="EF (generated)" id="1697465574864-7">
+        <addForeignKeyConstraint baseColumnNames="writer_id" baseTableName="writer_region_post" constraintName="writer_region_post_writer_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id_writer" referencedTableName="writer" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

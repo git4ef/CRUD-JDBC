@@ -78,9 +78,9 @@ public class WriterView {
             str = scanner.nextLine();
             System.out.println("Enter Last Name");
             str2 = scanner.nextLine();
-            System.out.println("Enter content for Post");
-            str3 = scanner.nextLine();
             System.out.println("Enter name for Region");
+            str3 = scanner.nextLine();
+            System.out.println("Enter content for Post");
             str4 = scanner.nextLine();
 
 
@@ -134,7 +134,6 @@ public class WriterView {
             System.out.println(e.getMessage());
         }
     }
-
 
     public void getAllWriters() {
         System.out.println(writerController.getAllWriters());
